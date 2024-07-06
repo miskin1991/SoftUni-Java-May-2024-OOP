@@ -8,32 +8,35 @@ public class _01_RhombusOfStars {
         Scanner scanner = new Scanner(System.in);
         int size = Integer.parseInt(scanner.nextLine());
 
-        // print top part
-        for (int i = 1; i <= size - 1; i++) {
-            for (int j = 1; j <= size - i; j++) {
-                System.out.print(" ");
-            }
-            for (int j = 1; j <= i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+        printTopPart(size);
+        printMiddlePart(size);
+        printBottomPart(size);
+    }
 
-        // print middle part
-        for (int i = 1; i <= size; i++) {
-            System.out.print("* ");
-        }
-        System.out.println();
-
-        // print top part
+    private static void printBottomPart(int size) {
         for (int i = size - 1; i >= 1 ; i--) {
-            for (int j = size - i; j >= 1; j--) {
-                System.out.print(" ");
-            }
-            for (int j = 1; j <= i; j++) {
-                System.out.print("* ");
-            }
+            printRepeatedString(" ", size - i);
+            printRepeatedString("* ", i);
             System.out.println();
+        }
+    }
+
+    private static void printMiddlePart(int size) {
+        printRepeatedString("* ", size);
+        System.out.println();
+    }
+
+    private static void printTopPart(int size) {
+        for (int i = 1; i <= size - 1; i++) {
+            printRepeatedString(" ", size - i);
+            printRepeatedString("* ", i);
+            System.out.println();
+        }
+    }
+
+    public static void printRepeatedString(String str, int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(str);
         }
     }
 }
