@@ -1,6 +1,4 @@
-package Labs.Encapsulations._04_FirstAndReserveTeam;
-
-import Labs.Encapsulations.Person.Person;
+package Labs.Encapsulations.FirstAndReserveTeam;
 
 import java.util.ArrayList;
 import java.util.Collections;

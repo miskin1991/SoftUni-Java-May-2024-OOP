@@ -1,4 +1,4 @@
-package Labs.Encapsulations._02_SalaryIncrease;
+package Labs.Encapsulations.SalaryIncrease;
 
 import Labs.Encapsulations.Person.Person;
 

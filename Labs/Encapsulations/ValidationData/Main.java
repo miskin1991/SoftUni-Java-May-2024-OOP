@@ -1,4 +1,4 @@
-package Labs.Encapsulations._04_FirstAndReserveTeam;
+package Labs.Encapsulations.ValidationData;
 
 import Labs.Encapsulations.Person.Person;
 
@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -26,18 +25,10 @@ public class Main {
                 System.out.println(exception.getMessage());
             }
         }
-
-        Team team = new Team("Black Eagles");
+        double bonus = Double.parseDouble(reader.readLine());
         for (Person person : people) {
-            team.addPlayer(person);
+            person.increaseSalary(bonus);
+            System.out.println(person);
         }
-
-        List<Person> firstTeam = team.getFirstTeam();
-        List<Person> reserveTeam = team.getReserveTeam();
-
-        System.out.printf("First team have %d players%n", firstTeam.size());
-        System.out.printf("Reserve team have %d players%n", reserveTeam.size());
-
-
     }
 }

@@ -1,4 +1,4 @@
-package Labs.Encapsulations._01_SortByNameAndAge;
+package Labs.Encapsulations.SortByNameAndAge;
 
 import Labs.Encapsulations.Person.Person;
 
