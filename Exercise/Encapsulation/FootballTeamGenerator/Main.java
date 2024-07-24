@@ -1,4 +1,4 @@
-package FootballTeamGenerator;
+package Exercise.Encapsulation.FootballTeamGenerator;
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class Main {
                     String teamName = tokens[1];
                     Team team = getTeam(teams, teamName);
                     if (team != null) {
-                        System.out.printf("%s - %.0f", teamName, team.getRating());
+                        System.out.printf("%s - %.0f%n", teamName, team.getRating());
                     }
                     break;
                 }
@@ -63,6 +63,10 @@ public class Main {
     }
 
     private static Team getTeam(List<Team> teams, String teamName) {
-        return teams.stream().filter(t -> t.getName().equals(teamName)).findFirst().orElse(null);
+        Team team = teams.stream().filter(t -> t.getName().equals(teamName)).findFirst().orElse(null);
+        if (team == null) {
+            System.out.printf("Team %s does not exist.%n", teamName);
+        }
+        return team;
     }
 }
