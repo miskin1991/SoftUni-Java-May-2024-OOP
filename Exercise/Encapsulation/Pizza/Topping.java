@@ -1,4 +1,4 @@
-package Pizza;
+package Exercise.Encapsulation.Pizza;
 
 public class Topping {
     private String toppingType;

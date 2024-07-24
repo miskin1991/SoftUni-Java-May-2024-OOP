@@ -1,4 +1,4 @@
-package Pizza;
+package Exercise.Encapsulation.Pizza;
 
 import java.util.Scanner;
 
