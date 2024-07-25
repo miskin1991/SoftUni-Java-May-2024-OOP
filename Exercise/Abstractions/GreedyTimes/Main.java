@@ -1,4 +1,4 @@
-package GreedyTimes;
+package Exercise.Abstractions.GreedyTimes;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int capacity = Integer.parseInt(scanner.nextLine());
+        long capacity = Long.parseLong(scanner.nextLine());
         Bag bag = new Bag(capacity);
 
         String[] items = scanner.nextLine().split("\\s+");

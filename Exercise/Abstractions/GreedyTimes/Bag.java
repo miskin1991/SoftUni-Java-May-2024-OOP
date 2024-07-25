@@ -1,32 +1,36 @@
-package GreedyTimes;
+package Exercise.Abstractions.GreedyTimes;
 
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Bag {
-    private final int capacity;
-    private long gold;
+    private final long capacity;
+    private final Map<String, Long> gold;
+    private long goldSum;
     private final Map<String, Long> gems;
     private long gemsSum;
     private final Map<String, Long> cash;
     private long cashSum;
 
-    public Bag(int capacity) {
+    public Bag(long capacity) {
         this.capacity = capacity;
-        gold = 0;
+        gold = new TreeMap<>();
+        goldSum = 0;
         gems = new TreeMap<>(Comparator.reverseOrder());
         gemsSum = 0;
         cash = new TreeMap<>(Comparator.reverseOrder());
         cashSum = 0;
     }
 
-    public void addGold(long gold) {
-        this.gold += gold;
+    public void addGold(long amount) {
+        if (addItem(gold, "Gold", amount)) {
+            goldSum += amount;
+        }
     }
 
     public void addGem(String name, long amount) {
-        if (gemsSum + amount <= gold) {
+        if (gemsSum + amount <= goldSum) {
             if (addItem(gems, name, amount)) {
                 gemsSum += amount;
             }
@@ -56,9 +60,13 @@ public class Bag {
 
     @Override
     public String toString() {
+        if (capacity < (goldSum + gemsSum + cashSum)) {
+            gold.clear();
+            gems.clear();
+            cash.clear();
+        }
         StringBuilder sb = new StringBuilder();
-        sb.append("<Gold> $").append(gold).append(System.lineSeparator());
-        sb.append("##Gold - ").append(gold).append(System.lineSeparator());
+        printMap(sb, "<Gold> $", goldSum, gold);
         printMap(sb, "<Gem> $", gemsSum, gems);
         printMap(sb, "<Cash> $", cashSum, cash);
         return sb.toString();
